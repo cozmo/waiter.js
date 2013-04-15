@@ -1,0 +1,22 @@
+{
+  "name": "waiter.js",
+  "version": "0.0.1",
+  "description": "Simple backbone.js plugin for rendering tables of data.",
+  "main": "./dist/waiter.js",
+  "devDependencies": {
+    "mocha": "~1.7.4",
+    "jsdom": "~0.3.2",
+    "coffee-script": "~1.4.0",
+    "uglify-js": "~2.2.2"
+  },
+  "scripts": {
+    "test": "make -B test",
+    "build": "make -B build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/templaedhel/waiter.js.git"
+  },
+  "author": "Cosmo Wolfe",
+  "license": "BSD"
+}
