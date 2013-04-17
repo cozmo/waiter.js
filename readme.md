@@ -114,7 +114,50 @@ Waiter uses a few classes on the header elements to indicate sorting data. These
 A column that can't be sorted (due to `sort: false` in the config) will have no classes.
 
 ##Advanced Usage
-Todo
+`Backbone.Waiter` is a Backbone view, and uses several other Backbone views internally. This means you can extend and subclass these to provide unlimited flexibility and customization for your tables. There are a few caveats which I lay out in this section. 
+
+First an overview of the different views.
+- `Backbone.Waiter` - The main view you interact with. Used for rendering tables.
+- `Backbone.WaiterHeaderView` - The view used for rendering the table header. You can specify a custom view instead in the [options](#options).
+  
+  This view is passed `options.config` which references the internal config settings waiter.js uses. It uses these to render the headings, and then listens to and updates sorting based on clicks.
+
+- `Backbone.WaiterRowView` - The view used for rendering rows in the table. You can specify a custom view instead in the [options](#options).
+  
+  This view is initialized with the `model` pointing the the Backbone model associated with the row.
+
+- `Backbone.WaiterCellView` - The view used for cells in the rows. You can specify a custom view instead in the [options](#options). 
+  
+  This view is initialized with `options.value` as the value the cell should display.
+
+###Some notes on extending views. 
+All of the Waiter views use the Backbone `render` function, and some make use of the `events` hash. This means unless you're completely gutting the waiter.js functionality you need to preserve these, and add your functionality to them. 
+
+Here is an example of how to do that.
+```js
+var CustomRowView = Backbone.WaiterRowView({
+  events: function(){
+    return _.extend({},ParentView.prototype.events,{
+      'click' : 'my_custom_click_handler'
+    });
+  },
+  render: function(){
+    customRowView.__super__.render.apply(this, arguments);
+    this.$el.addClass("mycustomelclass");  
+  }
+});
+```
+
+and the same example in coffeescript
+
+```coffeescript
+class CustomRowView extends Backbone.WaiterRowView
+  events: -> _.extend {}, ParentView::events,
+    "click": "my_custom_click_handler"
+  render: ->
+    super
+    @$el.addClass("mycustomelclass")
+```
 
 ## Development
 Development is done in [coffeescript](http://coffeescript.org/). You can view the development source in the `src` directory. 
