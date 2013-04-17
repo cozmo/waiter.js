@@ -31,18 +31,18 @@ The only options that are required are
 - `columns` - An array of columns for the table. These take several options
   - `name` - The name of the column. This is displayed in the table header. This is required
   - `value` - This is how you specify the value for the column. This is optional
-    If it is not provided then the value is fetched by calling ```js Model.get(column.name)``` on the model for the row. 
+      If it is not provided then the value is fetched by calling ```js Model.get(column.name)``` on the model for the row. 
 
-    If this is a string then the value is fetched by ```js Model.get(column.value)``` on the model for the row. 
+      If this is a string then the value is fetched by ```js Model.get(column.value)``` on the model for the row. 
 
-    Waiter.js also support custom getters. You can set value to be a function, and the returned value will be used. For example you can do
-    ```js
-    value: function(){
-      return this.get("first_name") + " " + this.get("last_name")
-    }
-    ```
+      Waiter.js also support custom getters. You can set value to be a function, and the returned value will be used. For example you can do
+      ```js
+      value: function(){
+        return this.get("first_name") + " " + this.get("last_name")
+      }
+      ```
 
-    `this` is the Backbone model for the row.
+      `this` is the Backbone model for the row.
 You can see the rest of the options [here](#options).
 Below you can see a basic example.
 
