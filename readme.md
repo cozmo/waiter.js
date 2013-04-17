@@ -1,4 +1,6 @@
 #waiter.js
+Waiter.js serves your Backbone tables
+
 Waiter.js is a simple [Backbone.js](http://backbonejs.org/) plugin for rendering your collections as tables. It was designed to be as lightweight and easy to use as possible, while still being able to handle most situations you could think of.
 
 I wrote waiter.js because I found myself duplicating a lot of boilerplate code for doing a simple task - rendering a backbone collection as a table (with sorting and other options). Waiter.js takes care of all of that, allowing you to simply pass in a list of columns with some options. It also is built solely as Backbone views, so you can (and should) extend and subclass them to meet your needs.
@@ -16,11 +18,10 @@ Because waiter.js is a Backbone plugin it requires Backbone (and all the prereqs
 <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="underscore-1.4.4.min.js"></script>
 <script type="text/javascript" src="backbone-1.0.0.min.js"></script> 
-<script type="text/javascript" src="path/to/waiter.js"></script>```
+<script type="text/javascript" src="path/to/waiter.js"></script>
+```
 
 We use `listenTo` to avoid memory leaks in your views, which was added in `v1.0.0` of backbone. In the future I may write a backwards compatible branch, but for now that is required. 
-
-
 
 ## Basic Usage
 In the most simple usage simply initialize a new `Backbone.Waiter` class with some options. This behaves like a normal backbone view, so you can access the `View.el` property to insert into the DOM.
