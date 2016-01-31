@@ -1,5 +1,9 @@
-#waiter.js
+# [unmaintained] waiter.js
 Waiter.js serves your Backbone tables
+
+**Note**: Waiter.js is unmaintained and most likely very buggy. It was written in a weekend to play around with some backbone JS problems I was experiencing at the time, but has not been used or edited since. Use at your own risk. 
+
+----
 
 Waiter.js is a simple [Backbone.js](http://backbonejs.org/) plugin for rendering your collections as tables. It was designed to be as lightweight and easy to use as possible, while still being able to handle most situations you could think of.
 
